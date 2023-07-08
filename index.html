@@ -127,7 +127,28 @@
   </div>
 
   <script>
-         
+          const panels = document.querySelectorAll('.panel');
+    function toggleIt()
+    {
+      this.classList.toggle('open');
+    }
+
+    const panel = panels.forEach(one=>{
+      one.addEventListener('click',toggleIt);
+    })
+
+    function toggleActive(e)
+    {
+      if(e.propertyName === "flex-grow")
+      {
+        this.classList.toggle('active');
+      }
+
+    }
+    const text = panels.forEach(one=>{
+      one.addEventListener('transitionend',toggleActive);
+    })
+        panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
   </script>
 
 
